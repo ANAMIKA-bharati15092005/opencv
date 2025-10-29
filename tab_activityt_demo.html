@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tab Activity Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f5f5f5;
+      transition: background 0.3s;
+    }
+    h1 {
+      color: #333;
+    }
+    .status {
+      margin-top: 20px;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Tab Activity Detector</h1>
+  <p>This page detects when you switch tabs or return.</p>
+  <div class="status" id="status">Tab is active ✅</div>
+
+  <script>
+    const statusEl = document.getElementById('status');
+
+    // Function to update the status message and background
+    function handleVisibilityChange() {
+      if (document.hidden) {
+        statusEl.textContent = "Tab is inactive ❌";
+        document.body.style.background = "#ffdddd";
+      } else {
+        statusEl.textContent = "Tab is active ✅";
+        document.body.style.background = "#ddffdd";
+      }
+    }
+
+    // Listen for visibility changes
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Initial state
+    handleVisibilityChange();
+  </script>
+</body>
+</html>
